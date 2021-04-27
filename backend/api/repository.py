@@ -5,11 +5,16 @@ class YoutubeRepository:
 
     def __init__(self):
         self.__path = 'https://crowdexpress.ng/api/users'
+        self.results = {}
 
-    def get_youtube_data(self):
+    def get_youtube_data(self, term):
+        if self.__results.has_key(term):
+            return self.results[term]
         user_request = requests.get(
             'https://crowdexpress.ng/api/users', timeout=10)
         if user_request.status_code == 200:
-            return user_request.json()
+            data = user_request.json()
+            self.results[term] = data
+            return data
         else:
             raise Exception('An error occured')
