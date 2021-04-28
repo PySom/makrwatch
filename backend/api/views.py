@@ -112,24 +112,23 @@ def youtube_api(request, term, token=None):
         video_param = {
             'part': 'statistics',
             'key': api_key,
-
         }
         try:
             data = make_youtube_request('search', params=search_params)
             # Get statistics for this video
-            for index in range(0, len(data['items'])):
-                # Get formatted date
-                data['items'][index]['snippet']['publishedAt'] = format_time(
-                    data['items'][index]['snippet']['publishedAt'])
-                video_param['id'] = data['items'][index]['id']['videoId']
-                # Get video statistics
-                try:
-                    video_stat = make_youtube_request(
-                        'videos', params=video_param)
-                    statistics = video_stat['items'][0]['statistics']
-                    data['items'][index]['statistics'] = statistics
-                except:
-                    pass
+            ids = [item['id']['videoId'] for item in data['items']]
+            video_param['id'] = ','.join(ids)
+            try:
+                video_stat = make_youtube_request(
+                    'videos', params=video_param)
+                for index in range(0, len(data['items'])):
+                    # Get formatted date
+                    data['items'][index]['snippet']['publishedAt'] = format_time(
+                        data['items'][index]['snippet']['publishedAt'])
+                    # Assign statistics value
+                    data['items'][index]['statistics'] = video_stat['items'][index]['statistics']
+            except:
+                pass
             # Add this result to cache
             searched_videos[key] = data
             return Response(data, status=status.HTTP_200_OK)
