@@ -1,0 +1,157 @@
+html, body, #root{
+    height: 100%;
+    width: 100%;
+
+  }
+ 
+.text-uppercase{
+    text-transform: uppercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.full-height{
+    height: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+p, ul, h1, h2, h3{
+    margin: 0;
+    padding: 0;
+}
+input, textarea{
+    border: 0.5px solid rgba(25, 0, 65, 0.4);
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 10px;
+}
+.half-width {
+    width: 50%;
+}
+
+.letter-spacing1{
+    letter-spacing: 1px;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+
+.flex-one{
+    flex: 1;
+}
+.d-flex{
+    display: flex;
+}
+
+
+.c-pointer{
+    cursor: pointer;
+}
+
+.flex-vertical{
+    flex-direction: column;
+}
+
+
+.unstyle-button {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+    .unstyle-button:focus {
+        outline: none;
+    }
+
+.text-white{
+    color: white !important;
+}
+
+
+.p-relative{
+    position: relative;
+}
+
+.p-absolute {
+    position: absolute;
+}
+
+.p-fixed {
+    position: fixed;
+}
+
+.p-sticky {
+    position: sticky;
+}
+
+
+.no-margin{
+    margin: 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.text-left{
+    text-align: left
+}
+
+.text-justify{
+    text-align: justify
+}
+
+.align-self-center{
+    align-self: center;
+}
+
+
+.j-space-between{
+    justify-content: space-between;
+}
+.align-center {
+    align-items: center;
+}
+
+.align-start {
+    align-items: start;
+}
+
+.align-self-start{
+    align-self: start;
+}
+
+.j-center{
+    justify-content: center;
+}
+
+.j-end {
+    justify-content: flex-end;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.no-desktop-but-mobile {
+    display: none;
+}
+
+.no-desktop-but-mobile-flex {
+    display: none;
+}
+.d-flex-mobile-block{
+    display: flex;
+}
+/*Media query*/
+@media (max-width: 760px) {
+    .d-flex-mobile-block{
+        display: block;
+    }
+}

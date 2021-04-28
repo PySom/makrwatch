@@ -1,0 +1,12 @@
+.app-icon{
+    width: 35%;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+/*Media query*/
+@media (max-width: 760px) {
+    .app-icon{
+        height: 20px;
+    }
+}
